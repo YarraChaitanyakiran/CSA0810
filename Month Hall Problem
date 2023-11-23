@@ -1,0 +1,38 @@
+import random
+import matplotlib.pyplot as plt
+             def monty_hall_simulation(num_trials):
+              switch_wins = 0
+               stay_wins = 0
+for _ in range(num_trials):
+                       doors = ["goat"] * 3
+                         car_index = random.randint(0, 2)
+                         doors[car_index] = "car“
+
+contestant_choice = random.randint(0, 2)
+          remaining_doors = [i for i in range(3) if i != contestant_choice and doors[i] != "car"]
+           monty_opens = random.choice(remaining_doors)
+                  switch_choice = [i for i in range(3) if i != contestant_choice and i != monty_opens][0]
+
+                   if doors[switch_choice] == "car":
+            switch_wins += 1
+f doors[contestant_choice] == "car":
+            stay_wins += 1
+
+  
+    labels = ['Switch Wins', 'Stay Wins']
+    values = [switch_wins, stay_wins]
+
+    plt.bar(labels, values, color=['blue', 'green'])
+    plt.title(f"Monty Hall Simulation ({num_trials} trials)")
+    plt.ylabel('Number of Wins')
+    plt.show()
+
+num_trials = int(input("Enter the number of trials: "))
+
+
+monty_hall_simulation(num_trials)
+
+
+
+
+
